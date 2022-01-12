@@ -1,7 +1,19 @@
 body {
-	font-size: 2rem;
+	font-family: "Poppins", sans-serif;
 }
 
-select {
-	font-size: 2rem;
+.tick line {
+	stroke: #c0c0bb;
+}
+
+.tick text {
+	fill: #635f5d;
+}
+
+.mark {
+	fill: #42a5b3;
+}
+
+.axis-label {
+	font-size: 1.5em;
 }
