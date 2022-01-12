@@ -1,11 +1,14 @@
 import React from "react";
 
-const Dropdown = ({ options }) => {
+const Dropdown = ({ options, id, onSelectedValueChange }) => {
 	return (
-		<select name="pets" id="pet-select">
-			<option value="">--Please choose an option--</option>
-			{options.map((option) => (
-				<option value={option.value}>{option.label}</option>
+		<select
+			name="pets"
+			id={id}
+			onChange={(event) => onSelectedValueChange(event.target.value)}
+		>
+			{options.map(({ value, label }) => (
+				<option value={value}>{label}</option>
 			))}
 		</select>
 	);

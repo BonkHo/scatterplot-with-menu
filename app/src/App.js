@@ -1,4 +1,5 @@
 import "./App.css";
+import React, { useState } from "react";
 import Dropdown from "./components/Dropdown";
 
 function App() {
@@ -11,10 +12,17 @@ function App() {
 		{ value: "goldfish", label: "Goldfish" },
 	];
 
+	const [selectedValue, setSelectedValue] = useState("");
+	console.log(selectedValue);
+
 	return (
 		<div className="App">
-			<label for="pet-select">Choose a pet:</label>
-			<Dropdown options={options} />
+			<label htmlFor="pet-select">Choose a pet:</label>
+			<Dropdown
+				options={options}
+				id="pet-select"
+				onSelectedValueChange={setSelectedValue}
+			/>
 		</div>
 	);
 }
