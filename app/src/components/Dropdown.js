@@ -1,6 +1,6 @@
 import React from "react";
 
-const Dropdown = ({ options, id, onSelectedValueChange }) => {
+const Dropdown = ({ options, id, onSelectedValueChange, selectedValue }) => {
 	return (
 		<select
 			name="pets"
@@ -8,7 +8,9 @@ const Dropdown = ({ options, id, onSelectedValueChange }) => {
 			onChange={(event) => onSelectedValueChange(event.target.value)}
 		>
 			{options.map(({ value, label }) => (
-				<option value={value}>{label}</option>
+				<option defaultValue={value} selected={value === selectedValue}>
+					{label}
+				</option>
 			))}
 		</select>
 	);

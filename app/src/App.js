@@ -12,7 +12,8 @@ function App() {
 		{ value: "goldfish", label: "Goldfish" },
 	];
 
-	const [selectedValue, setSelectedValue] = useState("");
+	const initialValue = "hamster";
+	const [selectedValue, setSelectedValue] = useState(initialValue);
 	console.log(selectedValue);
 
 	return (
@@ -21,6 +22,7 @@ function App() {
 			<Dropdown
 				options={options}
 				id="pet-select"
+				selectedValue={selectedValue}
 				onSelectedValueChange={setSelectedValue}
 			/>
 		</div>
