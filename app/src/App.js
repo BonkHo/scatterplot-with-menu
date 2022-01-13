@@ -27,8 +27,13 @@ const App = () => {
 	const yValue = (d) => d.sepal_width;
 	const initialXAttribute = "petal_length";
 	const initialYAttribute = "petal_width";
-	console.log(data.columns);
-	const attributes = [{}];
+	const attributes = [
+		{ value: "sepal_length", label: "Sepal Length" },
+		{ value: "sepal_width", label: "Sepal Width" },
+		{ value: "petal_length", label: "Petal Length" },
+		{ value: "petal_width", label: "Petal Width" },
+		{ value: "species", label: "Species" },
+	];
 
 	// States for axis
 	const [xAttribute, setXAttribute] = useState(initialXAttribute);
