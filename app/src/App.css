@@ -17,3 +17,12 @@ body {
 .axis-label {
 	font-size: 1.5em;
 }
+
+label,
+select {
+	font-size: 1.5em;
+}
+
+select option {
+	font-size: 1rem;
+}

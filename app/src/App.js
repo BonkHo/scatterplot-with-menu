@@ -11,22 +11,14 @@ import Dropdown from "./components/Dropdown";
 
 const App = () => {
 	// Values for visual
+	const data = useData();
 	const width = 1200;
 	const height = 500;
 	const margin = { top: 30, right: 30, bottom: 80, left: 250 };
 	const innerWidth = width - margin.left - margin.right;
 	const innerHeight = height - margin.top - margin.bottom;
-	const data = useData();
 	const xAxisLabelOffset = 70;
 	const yAxisLabelOffset = -70;
-
-	// Values for data
-	const xAxisLabel = "Sepal Length";
-	const yAxisLabel = "Sepal Width";
-	const xValue = (d) => d.sepal_length;
-	const yValue = (d) => d.sepal_width;
-	const initialXAttribute = "petal_length";
-	const initialYAttribute = "petal_width";
 	const attributes = [
 		{ value: "sepal_length", label: "Sepal Length" },
 		{ value: "sepal_width", label: "Sepal Width" },
@@ -36,8 +28,17 @@ const App = () => {
 	];
 
 	// States for axis
+
+	// Values for data
+	const initialXAttribute = "sepal_length";
 	const [xAttribute, setXAttribute] = useState(initialXAttribute);
+	const xValue = (d) => d[xAttribute];
+	const xAxisLabel = "Sepal Length";
+
+	const initialYAttribute = "sepal_width";
 	const [yAttribute, setYAttribute] = useState(initialYAttribute);
+	const yValue = (d) => d[yAttribute];
+	const yAxisLabel = "Sepal Width";
 
 	// Formatting for axis
 	const siFormat = format(".2s");
@@ -65,6 +66,13 @@ const App = () => {
 				id="x-select"
 				selectedValue={xAttribute}
 				onSelectedValueChange={setXAttribute}
+			/>
+			<label for="y-select">Y:</label>
+			<Dropdown
+				options={attributes}
+				id="y-select"
+				selectedValue={yAttribute}
+				onSelectedValueChange={setYAttribute}
 			/>
 			<svg width={width} height={height}>
 				<g transform={`translate(${margin.left}, ${margin.top})`}>
