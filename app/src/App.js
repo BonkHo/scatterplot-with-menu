@@ -28,17 +28,24 @@ const App = () => {
 	];
 
 	// States for axis
+	const getLabel = (value) => {
+		for (let i = 0; i < attributes.length; i++) {
+			if (attributes[i].value === value) {
+				return attributes[i].label;
+			}
+		}
+	};
 
 	// Values for data
 	const initialXAttribute = "sepal_length";
 	const [xAttribute, setXAttribute] = useState(initialXAttribute);
 	const xValue = (d) => d[xAttribute];
-	const xAxisLabel = "Sepal Length";
+	const xAxisLabel = getLabel(xAttribute);
 
 	const initialYAttribute = "sepal_width";
 	const [yAttribute, setYAttribute] = useState(initialYAttribute);
 	const yValue = (d) => d[yAttribute];
-	const yAxisLabel = "Sepal Width";
+	const yAxisLabel = getLabel(yAttribute);
 
 	// Formatting for axis
 	const siFormat = format(".2s");
