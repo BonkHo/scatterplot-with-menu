@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReactDropdown from "react-dropdown";
 import { extent, scaleLinear, format } from "d3";
 import { useData } from "./hooks/useData";
 import "./App.css";
@@ -68,14 +69,14 @@ const App = () => {
 	return (
 		<>
 			<label for="x-select">X:</label>
-			<Dropdown
+			<ReactDropdown
 				options={attributes}
 				id="x-select"
 				selectedValue={xAttribute}
 				onSelectedValueChange={setXAttribute}
 			/>
 			<label for="y-select">Y:</label>
-			<Dropdown
+			<ReactDropdown
 				options={attributes}
 				id="y-select"
 				selectedValue={yAttribute}
