@@ -14,8 +14,11 @@ body {
 	fill: #42a5b3;
 }
 
-.axis-label {
+.axis-label,
+.dropdown-label {
 	font-size: 1.5em;
+	color: #635f5d;
+	fill: #635f5d;
 }
 
 label,
@@ -66,6 +69,11 @@ select option {
 .is-open .Dropdown-arrow {
 	border-color: transparent transparent #999;
 	border-width: 0 5px 5px;
+}
+
+.Dropdown-root {
+	width: 300px;
+	display: inline-block;
 }
 
 .Dropdown-menu {

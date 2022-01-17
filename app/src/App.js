@@ -68,19 +68,17 @@ const App = () => {
 
 	return (
 		<>
-			<label for="x-select">X:</label>
+			<span className="dropdown-label">X:</span>
 			<ReactDropdown
 				options={attributes}
-				id="x-select"
 				selectedValue={xAttribute}
-				onSelectedValueChange={setXAttribute}
+				onChange={({ value }) => setXAttribute(value)}
 			/>
-			<label for="y-select">Y:</label>
+			<span className="dropdown-label">Y:</span>
 			<ReactDropdown
 				options={attributes}
-				id="y-select"
 				selectedValue={yAttribute}
-				onSelectedValueChange={setYAttribute}
+				onChange={({ value }) => setYAttribute(value)}
 			/>
 			<svg width={width} height={height}>
 				<g transform={`translate(${margin.left}, ${margin.top})`}>
