@@ -19,6 +19,11 @@ body {
 	font-size: 1.5em;
 	color: #635f5d;
 	fill: #635f5d;
+	padding: 0.5em;
+}
+
+.single-dropdown {
+	padding: 1em;
 }
 
 label,
@@ -32,6 +37,8 @@ select option {
 
 .Dropdown-root {
 	position: relative;
+	font-size: 1em;
+	max-height: 400px;
 }
 
 .Dropdown-control {
@@ -127,4 +134,10 @@ select option {
 	cursor: default;
 	display: block;
 	padding: 8px 10px;
+}
+
+.menus-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

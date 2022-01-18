@@ -68,18 +68,24 @@ const App = () => {
 
 	return (
 		<>
-			<span className="dropdown-label">X:</span>
-			<ReactDropdown
-				options={attributes}
-				selectedValue={xAttribute}
-				onChange={({ value }) => setXAttribute(value)}
-			/>
-			<span className="dropdown-label">Y:</span>
-			<ReactDropdown
-				options={attributes}
-				selectedValue={yAttribute}
-				onChange={({ value }) => setYAttribute(value)}
-			/>
+			<div className="menus-container">
+				<div className="single-dropdown">
+					<span className="dropdown-label">X:</span>
+					<ReactDropdown
+						options={attributes}
+						value={xAttribute}
+						onChange={({ value }) => setXAttribute(value)}
+					/>
+				</div>
+				<div className="single-dropdown">
+					<span className="dropdown-label">Y:</span>
+					<ReactDropdown
+						options={attributes}
+						value={yAttribute}
+						onChange={({ value }) => setYAttribute(value)}
+					/>
+				</div>
+			</div>
 			<svg width={width} height={height}>
 				<g transform={`translate(${margin.left}, ${margin.top})`}>
 					<AxisBottom
