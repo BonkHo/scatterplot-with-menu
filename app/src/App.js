@@ -16,11 +16,12 @@ const App = () => {
 	console.log(data);
 	const width = 1200;
 	const height = 500;
-	const margin = { top: 30, right: 30, bottom: 80, left: 250 };
+	const margin = { top: 30, right: 200, bottom: 80, left: 150 };
 	const innerWidth = width - margin.left - margin.right;
 	const innerHeight = height - margin.top - margin.bottom;
 	const xAxisLabelOffset = 70;
 	const yAxisLabelOffset = -70;
+	const circleRadius = 8;
 	const attributes = [
 		{ value: "sepal_length", label: "Sepal Length" },
 		{ value: "sepal_width", label: "Sepal Width" },
@@ -50,17 +51,20 @@ const App = () => {
 	const yAxisLabel = getLabel(yAttribute);
 
 	const colorValue = (d) => d.species;
-	const colorScale = scaleOrdinal()
-		.domain(data.map(colorValue))
-		.range(["#ee9b00", "#94d2bd", "#ae2012"]);
 
 	// Formatting for axis
 	const siFormat = format(".2s");
 	const xAxisTickFormat = (tickValue) => siFormat(tickValue).replace("G", "B");
 
+	// Preloading data
 	if (!data) {
 		return <pre>"Loading"</pre>;
 	}
+
+	// Data loaded
+	const colorScale = scaleOrdinal()
+		.domain(data.map(colorValue))
+		.range(["#ee9b00", "#94d2bd", "#ae2012"]);
 
 	const xScale = scaleLinear()
 		.domain(extent(data, xValue))
@@ -109,7 +113,14 @@ const App = () => {
 						{yAxisLabel}
 					</text>
 					<AxisLeft yScale={yScale} innerWidth={innerWidth} />
-					<ColorLegend colorScale={colorScale} />
+					<g transform={`translate(${innerWidth + 50})`}>
+						<ColorLegend
+							colorScale={colorScale}
+							legendSpacing={25}
+							legendCircleRadius={circleRadius}
+							legendTextOffset={20}
+						/>
+					</g>
 					<CircleMark
 						data={data}
 						xScale={xScale}
@@ -119,6 +130,7 @@ const App = () => {
 						colorScale={colorScale}
 						colorValue={colorValue}
 						toolTipFormat={xAxisTickFormat}
+						markRadius={circleRadius}
 					/>
 					<text
 						className="axis-label"
