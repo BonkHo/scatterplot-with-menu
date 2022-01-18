@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactDropdown from "react-dropdown";
-import { extent, scaleLinear, format } from "d3";
+import { extent, scaleLinear, format, scaleOrdinal } from "d3";
 import { useData } from "./hooks/useData";
 import "./App.css";
 
@@ -8,7 +8,6 @@ import "./App.css";
 import AxisBottom from "./components/AxisBottom";
 import AxisLeft from "./components/AxisLeft";
 import CircleMark from "./components/CircleMark";
-import Dropdown from "./components/Dropdown";
 
 const App = () => {
 	// Values for visual
@@ -47,6 +46,11 @@ const App = () => {
 	const [yAttribute, setYAttribute] = useState(initialYAttribute);
 	const yValue = (d) => d[yAttribute];
 	const yAxisLabel = getLabel(yAttribute);
+
+	const colorValue = (d) => d.species;
+	const colorScale = scaleOrdinal()
+		.domain(data.map(colorValue))
+		.range(["#ee9b00", "#94d2bd", "#ae2012"]);
 
 	// Formatting for axis
 	const siFormat = format(".2s");
@@ -109,6 +113,8 @@ const App = () => {
 						yScale={yScale}
 						xValue={xValue}
 						yValue={yValue}
+						colorScale={colorScale}
+						colorValue={colorValue}
 						toolTipFormat={xAxisTickFormat}
 					/>
 					<text
