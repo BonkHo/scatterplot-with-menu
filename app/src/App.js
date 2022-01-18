@@ -8,10 +8,12 @@ import "./App.css";
 import AxisBottom from "./components/AxisBottom";
 import AxisLeft from "./components/AxisLeft";
 import CircleMark from "./components/CircleMark";
+import ColorLegend from "./components/ColorLegend";
 
 const App = () => {
 	// Values for visual
 	const data = useData();
+	console.log(data);
 	const width = 1200;
 	const height = 500;
 	const margin = { top: 30, right: 30, bottom: 80, left: 250 };
@@ -107,6 +109,7 @@ const App = () => {
 						{yAxisLabel}
 					</text>
 					<AxisLeft yScale={yScale} innerWidth={innerWidth} />
+					<ColorLegend colorScale={colorScale} />
 					<CircleMark
 						data={data}
 						xScale={xScale}
