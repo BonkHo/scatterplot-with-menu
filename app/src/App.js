@@ -51,6 +51,7 @@ const App = () => {
 	const yAxisLabel = getLabel(yAttribute);
 
 	const colorValue = (d) => d.species;
+	const colorLegendLabel = "Species";
 
 	// Formatting for axis
 	const siFormat = format(".2s");
@@ -113,7 +114,15 @@ const App = () => {
 						{yAxisLabel}
 					</text>
 					<AxisLeft yScale={yScale} innerWidth={innerWidth} />
-					<g transform={`translate(${innerWidth + 50})`}>
+					<g transform={`translate(${innerWidth + 50}, 50)`}>
+						<text
+							x={40}
+							y={-30}
+							className="axis-label"
+							style={{ textAnchor: "middle" }}
+						>
+							{colorLegendLabel}
+						</text>
 						<ColorLegend
 							colorScale={colorScale}
 							legendSpacing={25}
