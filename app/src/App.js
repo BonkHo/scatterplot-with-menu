@@ -124,6 +124,7 @@ const App = () => {
 							{colorLegendLabel}
 						</text>
 						<ColorLegend
+							className="tick"
 							colorScale={colorScale}
 							legendSpacing={25}
 							legendCircleRadius={circleRadius}

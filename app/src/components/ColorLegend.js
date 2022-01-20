@@ -9,7 +9,7 @@ const ColorLegend = ({
 	colorScale.domain().map((domainValue, i) => (
 		<g transform={`translate(0, ${i * legendSpacing})`}>
 			<circle fill={colorScale(domainValue)} r={legendCircleRadius} />
-			<text x={legendTextOffset} dy=".32em">
+			<text className="legend-text" x={legendTextOffset} dy=".32em">
 				{domainValue}
 			</text>
 		</g>

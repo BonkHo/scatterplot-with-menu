@@ -8,9 +8,12 @@ body {
 
 .tick text {
 	fill: #635f5d;
+	color: #635f5d;
 }
 
-.mark {
+.legend-text {
+	color: #635f5d;
+	fill: #635f5d;
 }
 
 .axis-label,
